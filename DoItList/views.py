@@ -9,6 +9,7 @@ from .forms import RegistrationForm
 # Credit where credit's due:
 # Views adapted from github:DrkSephy/django-hackathon-starter/
 
+
 @csrf_protect
 def user_login(request):
     if request.method == 'POST':
