@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log me Scotty</title>
+</head>
+<body>
+    <section class="loginform">
+        <form name="login" method="post">
+            {% csrf_token %}
+            <label for="usermail">Email</label>
+            <input type="email" name="usermail" placeholder="yourname@email.com" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="password" required>
+            <input type="submit" value="Login">
+        </form>
+    </section>
+    <section>
+        <p>Not registered? <a href="{% url "register" %}">Register Here</a></p>
+    </section>
+</body>
+</html>
