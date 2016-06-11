@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <section class="createform">
+        <form name="create_todolist" method="post">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="" required>
+            <input type="submit" value="Create">
+        </form>
+    </section>
+</body>
+</html>

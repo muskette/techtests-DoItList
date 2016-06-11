@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse_lazy
 from django.db import models
 
 from .managers import ItemManager
@@ -7,6 +8,10 @@ from .managers import ItemManager
 class TodoList(models.Model):
     title = models.CharField(max_length=20)
     owner = models.ForeignKey(User, related_name='lists')
+
+    @property
+    def get_absolute_url(self):
+        return reverse_lazy('todo:list', self.pk)
 
 class Item(models.Model):
     item_name = models.CharField(max_length=20)

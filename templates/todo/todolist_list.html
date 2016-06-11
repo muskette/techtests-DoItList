@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome {{ user.username }}!</title>
+</head>
+<body>
+    <section>
+        <a href="{% url "todo:list_create" %}">Create New</a>
+    </section>
+    <section>
+        {% for list in object_list %}
+            <a href="{{ list.get_absolute_url }}">{{ list.title }}</a>
+        {% endfor %}
+    </section>
+</body>
+</html>
