@@ -16,6 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 # from django.contrib import admin
 
+from django.conf.urls import url, include
+from django.shortcuts import redirect
+
+from . import views
+
 urlpatterns = [
-    # url(r'^admin/', admin.site.urls),
+    url(r'todo/', include('todo.urls', namespace='todo')),
+    url(r'login/', views.user_login, name='login'),
+    url(r'logout/', views.logout, name='logout'),
+    url(r'register/', views.register, name='register'),
+    url(r'^', views.user_login, name='home'),
+    # Wanted to redirect '/' to login url but runs into circular import issues?
+    # Not worth digging in now, I'll just render the same view
 ]
